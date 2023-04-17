@@ -9,17 +9,11 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.png">
 
-    <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
-    
-    {{-- <script src="{{ asset('build/assets/app.d225c007.js') }}"></script> --}}
-
     <!-- page css -->
 
     <!-- Core css -->
-    {{-- <link href="../css/app.min.css" rel="stylesheet"> --}}
-    {{-- @vite(['resources/css/app.min.css']) --}}
-    
-    {{-- @vite(['resources/css/app.min.css', 'resources/js/vendors.min.js', 'resources/js/pages/chartjs.js', 'resources/js/pages/dashboard-default.js', 'resources/js/app.min.js']) --}}
+    <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
+
 </head>
 
 <body>
@@ -210,24 +204,17 @@
         </div>
     </div>
 
+    <!-- Core Vendors JS -->
+
     <script src="{{ asset('assets/js/vendors.min.js')}}"></script>
 
+    <!-- page js -->
     <script src="{{ asset('assets/js/pages/chartjs.js')}}"></script>
     <script src="{{ asset('assets/js/pages/dashboard-default.js')}}"></script>
 
+    <!-- Core JS -->
     <script src="{{ asset('assets/js/app.min.js')}}"></script>
 
-    
-    {{-- <!-- Core Vendors JS -->
-        
-    <script src="../js/vendors.min.js"></script>
-
-    <!-- page js -->
-    <script src="../vendors/chartjs/Chart.min.js"></script>
-    <script src="../js/pages/dashboard-default.js"></script>
-
-    <!-- Core JS -->
-    <script src="../js/app.min.js"></script> --}}
 
 </body>
 
