@@ -39,6 +39,10 @@
                 </a>
             @endif
 
+            <x-primary-button class="ml-3" type="button" onclick="location.href='{{ route('guestdashboard') }}'">
+                {{ __('Test User') }}
+            </x-primary-button>
+
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}
             </x-primary-button>

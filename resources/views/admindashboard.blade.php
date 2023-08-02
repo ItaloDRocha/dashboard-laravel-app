@@ -65,7 +65,12 @@
                                             <img src="assets/images/avatars/thumb-3.jpg" alt="">
                                         </div>
                                         <div class="m-l-10">
-                                            <p class="m-b-0 text-dark font-weight-semibold">{{Auth::user()->name}}</p>
+                                            @if (Auth::check())
+                                                <p class="m-b-0 text-dark font-weight-semibold">{{Auth::user()->name}}</p>
+                                                @else
+                                                <p class="m-b-0 text-dark font-weight-semibold">Usuário Teste</p>
+                                            @endif
+                                            
                                             <p class="m-b-0 opacity-07">Back End Dev</p>
                                         </div>
                                     </div>
@@ -152,7 +157,7 @@
                                             <i class="anticon anticon-dollar"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">$23,523</h2>
+                                            <h2 class="m-b-0">${{$userData-> profit}}</h2>
                                             <p class="m-b-0 text-muted">Profit</p>
                                         </div>
                                     </div>
@@ -167,7 +172,7 @@
                                             <i class="anticon anticon-line-chart"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">+ 17.21%</h2>
+                                            <h2 class="m-b-0">+ {{$userData-> growth}}%</h2>
                                             <p class="m-b-0 text-muted">Growth</p>
                                         </div>
                                     </div>
@@ -182,7 +187,7 @@
                                             <i class="anticon anticon-profile"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">3,685</h2>
+                                            <h2 class="m-b-0">{{$userData-> orders}}</h2>
                                             <p class="m-b-0 text-muted">Orders</p>
                                         </div>
                                     </div>
@@ -197,7 +202,7 @@
                                             <i class="anticon anticon-user"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">1,832</h2>
+                                            <h2 class="m-b-0">{{$userData-> customers}}</h2>
                                             <p class="m-b-0 text-muted">Customers</p>
                                         </div>
                                     </div>
