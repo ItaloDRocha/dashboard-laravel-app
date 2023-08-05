@@ -1,3 +1,15 @@
+
+@php
+//  mantem a session ativa em novas requisições
+    // Request::session()->reflash();
+    // Nao é necessario pois a session agora é armazenada globalmente
+
+    if(session()->has('userData')){
+        $userData = session('userData');
+    }
+
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,12 +112,6 @@
                                             <i class="anticon font-size-10 anticon-right"></i>
                                         </div>
                                     </a>
-        
-                                    {{-- <x-dropdown-link :href="route('logout')"
-                                            onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </x-dropdown-link> --}}
                                 </form>
 
 

@@ -20,16 +20,43 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
-    public function store(LoginRequest $request): RedirectResponse
+    // /**
+    //  * Handle an incoming authentication request.
+    //  */
+    public function store(LoginRequest $request) :RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $userData = array("profit" => 23.523, "growth" => 17.21, "orders" => 3685, "customers" => 269);
+        
+
+        $userData = json_encode($userData, JSON_PRETTY_PRINT);
+
+        $userData = json_decode($userData);
+
+        // echo var_dump($guestData);
+
+        $teste_array = array('1','2','3','4','5');
+        
+        // $userData = serialize($userData);
+
+        // echo var_dump($userData);
+        // return view ('admindashboard', ['userData' => $userData]);
+
+        // return redirect()-> intended() -> view ('admindashboard', ['userData' => $userData,'testeroni' => $testeroni]);
+
+        session(['userData' => $userData]);
+
+        return redirect()->route('admindashboard');
+        // return redirect()->route('admindashboard')->with(['userData' => $userData]);
+        
+        
+
+        // return redirect()->route('admindashboard', ['testeroni' => "testerones"]);
+        
+        // return response() ->view('admindashboard','testeroni' => $testeroni, 200);
     }
 
     /**

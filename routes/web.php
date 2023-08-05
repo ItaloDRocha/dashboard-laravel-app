@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,16 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->group(function () {
 
+
+    
+    
+    
+Route::get('/guestdashboard', [GuestController::class, 'guestData'])->name('guestdashboard');
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    
     Route::view('/dashboard', 'dashboard')->name('dashboard');
     Route::view('/admindashboard', 'admindashboard')->name('admindashboard');
 
