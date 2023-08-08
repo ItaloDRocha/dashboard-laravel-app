@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class UserData extends Model
 {
     use HasFactory;
@@ -19,6 +20,13 @@ class UserData extends Model
         'customers'
     ];
 
+    public function getData(int $userId)
+    {
+
+        return UserData::select('profit','growth','orders','customers')->where('user_id', $userId)->get();
+
+    }
+
     public function createData(int $userId) : UserData
     {
         $userData = UserData::create([
@@ -26,7 +34,7 @@ class UserData extends Model
             'profit' => 23523,
             'growth' => 1721,
             'orders' => 3685,
-            'customers' => 250,
+            'customers' => 269,
         ]);
 
         return $userData;

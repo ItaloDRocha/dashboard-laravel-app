@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\UserData;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -23,40 +24,33 @@ class AuthenticatedSessionController extends Controller
     // /**
     //  * Handle an incoming authentication request.
     //  */
-    public function store(LoginRequest $request) :RedirectResponse
+    public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        $userData = array("profit" => 23.523, "growth" => 17.21, "orders" => 3685, "customers" => 269);
-        
+        $id_user = auth()->user()->id;
 
-        $userData = json_encode($userData, JSON_PRETTY_PRINT);
+        $user_dataClass = new UserData;
 
-        $userData = json_decode($userData);
+        $userData_banco =  $user_dataClass->getData($id_user);
 
-        // echo var_dump($guestData);
+        //Verifica se precisa criar os dados do usuário
 
-        $teste_array = array('1','2','3','4','5');
-        
-        // $userData = serialize($userData);
+        if ($userData_banco->count() == 0) {
+            echo $user_dataClass->createData($id_user);
+            $userData_banco =  $user_dataClass->getData($id_user);
+        } 
 
-        // echo var_dump($userData);
-        // return view ('admindashboard', ['userData' => $userData]);
-
-        // return redirect()-> intended() -> view ('admindashboard', ['userData' => $userData,'testeroni' => $testeroni]);
+        $userData = $userData_banco[0];
 
         session(['userData' => $userData]);
 
         return redirect()->route('admindashboard');
+        
         // return redirect()->route('admindashboard')->with(['userData' => $userData]);
-        
-        
 
-        // return redirect()->route('admindashboard', ['testeroni' => "testerones"]);
-        
-        // return response() ->view('admindashboard','testeroni' => $testeroni, 200);
     }
 
     /**
