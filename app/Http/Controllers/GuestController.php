@@ -9,7 +9,7 @@ class GuestController extends Controller
 {
     public function guestData() : View
     {
-        $guestData = array("profit" => 23.523, "growth" => 17.21, "orders" => 3685, "customers" => 250);
+        $guestData = array("profit" => 23523, "growth" => 1721, "orders" => 3685, "customers" => 250);
 
         $guestData = json_encode($guestData, JSON_PRETTY_PRINT);
 

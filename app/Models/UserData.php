@@ -39,4 +39,9 @@ class UserData extends Model
 
         return $userData;
     }
+
+    public function updateData()
+    {
+        
+    }
 }

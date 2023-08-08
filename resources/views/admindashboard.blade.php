@@ -87,11 +87,29 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                @auth
+   
+
                                 <a href="{{route('profile.edit')}}" class="dropdown-item d-block p-h-15 p-v-10">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div>
                                             <i class="anticon opacity-04 font-size-16 anticon-user"></i>
                                             <span class="m-l-10">Edit Profile</span>
+                                        </div>
+                                        <i class="anticon font-size-10 anticon-right"></i>
+                                    </div>
+                                </a>
+
+
+
+                                @endauth
+
+                                <a href="" class="dropdown-item d-block p-h-15 p-v-10" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <i class="anticon opacity-04 font-size-16 anticon-user"></i>
+                                            <span class="m-l-10">Alterar Valores</span>
                                         </div>
                                         <i class="anticon font-size-10 anticon-right"></i>
                                     </div>
@@ -222,6 +240,60 @@
             <!-- Quick View END -->
         </div>
     </div>
+
+    
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Alterar valores</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+              
+
+            <form>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="inputEmail4">Profit</label>
+                        <input type="text" class="form-control" placeholder="Profit" value="{{$userData-> profit}}">
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4">Growth</label>
+                        <input type="text" class="form-control" placeholder="Growth" value="{{$userData-> growth}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="inputEmail4">Orders</label>
+                        <input type="text" class="form-control" placeholder="Orders" value="{{$userData-> orders}}">
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail4">Customers</label>
+                        <input type="text" class="form-control" placeholder="Customers" value="{{$userData-> customers}}">
+                    </div>
+                </div>
+            </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
     <!-- Core Vendors JS -->
 
