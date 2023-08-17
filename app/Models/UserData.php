@@ -40,8 +40,8 @@ class UserData extends Model
         return $userData;
     }
 
-    public function updateData()
-    {
-        
-    }
+    // static function updateData(int $userId, $dados)
+    // {
+    //     return $dados;
+    // }
 }

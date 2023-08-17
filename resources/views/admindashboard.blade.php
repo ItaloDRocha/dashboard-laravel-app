@@ -257,25 +257,27 @@
             <div class="modal-body">
               
 
-            <form>
+            <form id ="alterar" method="POST" action="{{ route('alterarValor') }}">
+                @csrf
+                @method('PUT')
                 <div class="form-row">
                     <div class="col">
                         <label for="inputEmail4">Profit</label>
-                        <input type="text" class="form-control" placeholder="Profit" value="{{$userData-> profit}}">
+                        <input id="profit" name="profit" type="text" class="form-control" placeholder="Profit" value="{{$userData-> profit}}">
                     </div>
                     <div class="col">
                         <label for="inputEmail4">Growth</label>
-                        <input type="text" class="form-control" placeholder="Growth" value="{{$userData-> growth}}">
+                        <input id="growth" name="growth" type="text" class="form-control" placeholder="Growth" value="{{$userData-> growth}}">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
                         <label for="inputEmail4">Orders</label>
-                        <input type="text" class="form-control" placeholder="Orders" value="{{$userData-> orders}}">
+                        <input id="orders" name="orders" type="text" class="form-control" placeholder="Orders" value="{{$userData-> orders}}">
                     </div>
                     <div class="col">
                         <label for="inputEmail4">Customers</label>
-                        <input type="text" class="form-control" placeholder="Customers" value="{{$userData-> customers}}">
+                        <input id="customers" name="customers" type="text" class="form-control" placeholder="Customers" value="{{$userData-> customers}}">
                     </div>
                 </div>
             </form>
@@ -283,8 +285,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="submit" form="alterar" class="btn btn-primary" >Alterar Valores</button>
             </div>
         </div>
     </div>
@@ -302,6 +304,14 @@
     <!-- page js -->
     <script src="{{ asset('assets/js/pages/chartjs.js')}}"></script>
     <script src="{{ asset('assets/js/pages/dashboard-default.js')}}"></script>
+
+    @if (session('message'))
+        <script>
+            $(document).ready(function () {
+                alert(`{{session('message')}}`);
+            });
+        </script>
+    @endif
 
     <!-- Core JS -->
     <script src="{{ asset('assets/js/app.min.js')}}"></script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlterarValores;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,7 @@ Route::get('/', function () {
 Route::get('/guestdashboard', [GuestController::class, 'guestData'])->name('guestdashboard');
 
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'atualizar.dados'])->group(function () {
     
     Route::view('/dashboard', 'dashboard')->name('dashboard');
     Route::view('/admindashboard', 'admindashboard')->name('admindashboard');
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::put('/admindashboard/alterarValores', [AlterarValores::class, 'alterarValor'])->name('alterarValor');
 });
 
 require __DIR__.'/auth.php';
