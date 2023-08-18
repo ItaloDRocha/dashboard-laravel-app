@@ -40,12 +40,7 @@ class AuthenticatedSessionController extends Controller
 
         if ($userData_banco->count() == 0) {
             echo $user_dataClass->createData($id_user);
-            $userData_banco =  $user_dataClass->getData($id_user);
         } 
-
-        $userData = $userData_banco[0];
-
-        session(['userData' => $userData]);
 
         return redirect()->route('admindashboard');
         

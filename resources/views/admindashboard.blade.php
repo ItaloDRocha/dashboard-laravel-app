@@ -1,13 +1,12 @@
-
 @php
-//  mantem a session ativa em novas requisições
+    //  mantem a session ativa em novas requisições
     // Request::session()->reflash();
     // Nao é necessario pois a session agora é armazenada globalmente
-
-    if(session()->has('userData')){
+    
+    if (session()->has('userData')) {
         $userData = session('userData');
     }
-
+    
 @endphp
 
 <!DOCTYPE html>
@@ -24,7 +23,7 @@
     <!-- page css -->
 
     <!-- Core css -->
-    <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
 
 </head>
 
@@ -34,13 +33,13 @@
             <!-- Header START -->
             <div class="header">
                 <div class="logo logo-dark">
-                    <a href="{{route('admindashboard')}}">
+                    <a href="{{ route('admindashboard') }}">
                         <img src="assets/images/logo/logo.png" alt="Logo">
                         <img class="logo-fold" src="assets/images/logo/logo-fold.png" alt="Logo">
                     </a>
                 </div>
                 <div class="logo logo-white">
-                    <a href="{{route('admindashboard')}}">
+                    <a href="{{ route('admindashboard') }}">
                         <img src="assets/images/logo/logo-white.png" alt="Logo">
                         <img class="logo-fold" src="assets/images/logo/logo-fold-white.png" alt="Logo">
                     </a>
@@ -67,7 +66,7 @@
                         <li class="dropdown dropdown-animated scale-left">
                             <div class="pointer" data-toggle="dropdown">
                                 <div class="avatar avatar-image  m-h-10 m-r-15">
-                                    <img src="assets/images/avatars/thumb-3.jpg"  alt="">
+                                    <img src="assets/images/avatars/thumb-3.jpg" alt="">
                                 </div>
                             </div>
                             <div class="p-b-15 p-t-20 dropdown-menu pop-profile">
@@ -78,34 +77,36 @@
                                         </div>
                                         <div class="m-l-10">
                                             @if (Auth::check())
-                                                <p class="m-b-0 text-dark font-weight-semibold">{{Auth::user()->name}}</p>
-                                                @else
+                                                <p class="m-b-0 text-dark font-weight-semibold">{{ Auth::user()->name }}
+                                                </p>
+                                            @else
                                                 <p class="m-b-0 text-dark font-weight-semibold">Usuário Teste</p>
                                             @endif
-                                            
+
                                             <p class="m-b-0 opacity-07">Back End Dev</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 @auth
-   
 
-                                <a href="{{route('profile.edit')}}" class="dropdown-item d-block p-h-15 p-v-10">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <i class="anticon opacity-04 font-size-16 anticon-user"></i>
-                                            <span class="m-l-10">Edit Profile</span>
+
+                                    <a href="{{ route('profile.edit') }}" class="dropdown-item d-block p-h-15 p-v-10">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <i class="anticon opacity-04 font-size-16 anticon-user"></i>
+                                                <span class="m-l-10">Edit Profile</span>
+                                            </div>
+                                            <i class="anticon font-size-10 anticon-right"></i>
                                         </div>
-                                        <i class="anticon font-size-10 anticon-right"></i>
-                                    </div>
-                                </a>
+                                    </a>
 
 
 
                                 @endauth
 
-                                <a href="" class="dropdown-item d-block p-h-15 p-v-10" data-toggle="modal" data-target="#exampleModalCenter">
+                                <a href="" class="dropdown-item d-block p-h-15 p-v-10" data-toggle="modal"
+                                    data-target="#exampleModalCenter">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div>
                                             <i class="anticon opacity-04 font-size-16 anticon-user"></i>
@@ -118,10 +119,10 @@
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
 
-                                    <a href="{{route('logout')}}" 
-                                    onclick="event.preventDefault();
-                                    this.closest('form').submit();" 
-                                    class="dropdown-item d-block p-h-15 p-v-10">
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                    this.closest('form').submit();"
+                                        class="dropdown-item d-block p-h-15 p-v-10">
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div>
                                                 <i class="anticon opacity-04 font-size-16 anticon-logout"></i>
@@ -133,12 +134,12 @@
                                 </form>
 
 
-                                
+
                             </div>
                         </li>
                     </ul>
                 </div>
-            </div>    
+            </div>
             <!-- Header END -->
 
             <!-- Side Nav START -->
@@ -157,7 +158,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="active">
-                                    <a href="{{route('admindashboard')}}">Default</a>
+                                    <a href="{{ route('admindashboard') }}">Default</a>
                                 </li>
                             </ul>
                         </li>
@@ -168,7 +169,7 @@
 
             <!-- Page Container START -->
             <div class="page-container">
-                
+
 
                 <!-- Content Wrapper START -->
                 <div class="main-content">
@@ -181,7 +182,7 @@
                                             <i class="anticon anticon-dollar"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">${{$userData-> profit}}</h2>
+                                            <h2 class="m-b-0">${{ $userData->profit }}</h2>
                                             <p class="m-b-0 text-muted">Profit</p>
                                         </div>
                                     </div>
@@ -196,7 +197,7 @@
                                             <i class="anticon anticon-line-chart"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">+ {{$userData-> growth}}%</h2>
+                                            <h2 class="m-b-0">+ {{ $userData->growth }}%</h2>
                                             <p class="m-b-0 text-muted">Growth</p>
                                         </div>
                                     </div>
@@ -211,7 +212,7 @@
                                             <i class="anticon anticon-profile"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">{{$userData-> orders}}</h2>
+                                            <h2 class="m-b-0">{{ $userData->orders }}</h2>
                                             <p class="m-b-0 text-muted">Orders</p>
                                         </div>
                                     </div>
@@ -226,7 +227,7 @@
                                             <i class="anticon anticon-user"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">{{$userData-> customers}}</h2>
+                                            <h2 class="m-b-0">{{ $userData->customers }}</h2>
                                             <p class="m-b-0 text-muted">Customers</p>
                                         </div>
                                     </div>
@@ -241,80 +242,78 @@
         </div>
     </div>
 
-    
+
 
 
     <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Alterar valores</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <i class="anticon anticon-close"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-              
-
-            <form id ="alterar" method="POST" action="{{ route('alterarValor') }}">
-                @csrf
-                @method('PUT')
-                <div class="form-row">
-                    <div class="col">
-                        <label for="inputEmail4">Profit</label>
-                        <input id="profit" name="profit" type="text" class="form-control" placeholder="Profit" value="{{$userData-> profit}}">
-                    </div>
-                    <div class="col">
-                        <label for="inputEmail4">Growth</label>
-                        <input id="growth" name="growth" type="text" class="form-control" placeholder="Growth" value="{{$userData-> growth}}">
-                    </div>
+    <div class="modal fade" id="exampleModalCenter">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Alterar valores</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="anticon anticon-close"></i>
+                    </button>
                 </div>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="inputEmail4">Orders</label>
-                        <input id="orders" name="orders" type="text" class="form-control" placeholder="Orders" value="{{$userData-> orders}}">
-                    </div>
-                    <div class="col">
-                        <label for="inputEmail4">Customers</label>
-                        <input id="customers" name="customers" type="text" class="form-control" placeholder="Customers" value="{{$userData-> customers}}">
-                    </div>
+                <div class="modal-body">
+                    <form id="alterar" method="POST" action="{{ route('alterarValor') }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="inputEmail4">Profit</label>
+                                <input id="profit" name="profit" type="text" class="form-control"
+                                    placeholder="Profit" value="{{ $userData->profit }}">
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail4">Growth</label>
+                                <input id="growth" name="growth" type="text" class="form-control"
+                                    placeholder="Growth" value="{{ $userData->growth }}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="inputEmail4">Orders</label>
+                                <input id="orders" name="orders" type="text" class="form-control"
+                                    placeholder="Orders" value="{{ $userData->orders }}">
+                            </div>
+                            <div class="col">
+                                <label for="inputEmail4">Customers</label>
+                                <input id="customers" name="customers" type="text" class="form-control"
+                                    placeholder="Customers" value="{{ $userData->customers }}">
+                            </div>
+                        </div>
+                    </form>
+
+
                 </div>
-            </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="alterar" class="btn btn-primary">Alterar Valores</button>
 
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="submit" form="alterar" class="btn btn-primary" >Alterar Valores</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-
 
     <!-- Core Vendors JS -->
 
-    <script src="{{ asset('assets/js/vendors.min.js')}}"></script>
+    <script src="{{ asset('assets/js/vendors.min.js') }}"></script>
 
     <!-- page js -->
-    <script src="{{ asset('assets/js/pages/chartjs.js')}}"></script>
-    <script src="{{ asset('assets/js/pages/dashboard-default.js')}}"></script>
+    <script src="{{ asset('assets/js/pages/chartjs.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/dashboard-default.js') }}"></script>
 
     @if (session('message'))
         <script>
-            $(document).ready(function () {
-                alert(`{{session('message')}}`);
+            $(document).ready(function() {
+                alert(`{{ session('message') }}`);
             });
         </script>
     @endif
 
     <!-- Core JS -->
-    <script src="{{ asset('assets/js/app.min.js')}}"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
 
 
 </body>

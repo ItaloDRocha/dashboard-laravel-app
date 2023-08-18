@@ -30,7 +30,7 @@ Route::get('/', function () {
     
     
 Route::get('/guestdashboard', [GuestController::class, 'guestData'])->name('guestdashboard');
-
+Route::put('/admindashboard/alterarValores', [AlterarValores::class, 'alterarValor'])->name('alterarValor');
 
 Route::middleware(['auth', 'verified', 'atualizar.dados'])->group(function () {
     
@@ -43,7 +43,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::put('/admindashboard/alterarValores', [AlterarValores::class, 'alterarValor'])->name('alterarValor');
 });
 
 require __DIR__.'/auth.php';

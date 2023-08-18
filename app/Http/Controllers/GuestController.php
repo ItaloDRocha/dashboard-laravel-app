@@ -9,12 +9,8 @@ class GuestController extends Controller
 {
     public function guestData() : View
     {
-        $guestData = array("profit" => 23523, "growth" => 1721, "orders" => 3685, "customers" => 250);
-
-        $guestData = json_encode($guestData, JSON_PRETTY_PRINT);
-
+        $guestData = file_get_contents('..\resources\json\guestData.json');
         $userData = json_decode($guestData);
-
         return view ('admindashboard', ['userData' => $userData]);
     }
 }
