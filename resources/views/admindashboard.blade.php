@@ -182,7 +182,7 @@
                                             <i class="anticon anticon-dollar"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">${{ $userData->profit }}</h2>
+                                            <h2 class="m-b-0">${{ number_format($userData->profit) }}</h2>
                                             <p class="m-b-0 text-muted">Profit</p>
                                         </div>
                                     </div>
@@ -197,7 +197,7 @@
                                             <i class="anticon anticon-line-chart"></i>
                                         </div>
                                         <div class="m-l-15">
-                                            <h2 class="m-b-0">+ {{ $userData->growth }}%</h2>
+                                            <h2 class="m-b-0">+ {{ $userData->growth / 100 }}%</h2>
                                             <p class="m-b-0 text-muted">Growth</p>
                                         </div>
                                     </div>
@@ -262,24 +262,24 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="inputEmail4">Profit</label>
-                                <input id="profit" name="profit" type="text" class="form-control"
+                                <input id="profit" name="profit" type="number" class="form-control"
                                     placeholder="Profit" value="{{ $userData->profit }}">
                             </div>
                             <div class="col">
                                 <label for="inputEmail4">Growth</label>
-                                <input id="growth" name="growth" type="text" class="form-control"
+                                <input id="growth" name="growth" type="number" class="form-control"
                                     placeholder="Growth" value="{{ $userData->growth }}">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label for="inputEmail4">Orders</label>
-                                <input id="orders" name="orders" type="text" class="form-control"
+                                <input id="orders" name="orders" type="number" class="form-control"
                                     placeholder="Orders" value="{{ $userData->orders }}">
                             </div>
                             <div class="col">
                                 <label for="inputEmail4">Customers</label>
-                                <input id="customers" name="customers" type="text" class="form-control"
+                                <input id="customers" name="customers" type="number" class="form-control"
                                     placeholder="Customers" value="{{ $userData->customers }}">
                             </div>
                         </div>

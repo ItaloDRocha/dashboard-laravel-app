@@ -39,11 +39,12 @@ class AuthenticatedSessionController extends Controller
         //Verifica se precisa criar os dados do usuário
 
         if ($userData_banco->count() == 0) {
-            echo $user_dataClass->createData($id_user);
-        } 
+            $user_dataClass->createData($id_user);
+            // echo "pré criacao dos dados userData com sucesso";
+        }
 
         return redirect()->route('admindashboard');
-        
+
         // return redirect()->route('admindashboard')->with(['userData' => $userData]);
 
     }

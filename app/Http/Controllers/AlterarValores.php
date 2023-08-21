@@ -30,10 +30,9 @@ class AlterarValores extends Controller
         $json_data =  json_encode($request->except('_method', '_token'), JSON_PRETTY_PRINT);
         $json_return = file_put_contents('..\resources\json\guestData.json', $json_data);
 
-        if($json_return != false){
+        if ($json_return != false) {
             return redirect()->route('guestdashboard')->with(['message' => 'Dados alterados com sucesso!']);
         }
         return redirect()->route('guestdashboard')->with(['message' => 'Nenhum dado alterado!']);
-        
     }
 }
