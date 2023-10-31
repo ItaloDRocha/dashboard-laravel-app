@@ -13,13 +13,13 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você instalou a versão mais recente de `<node / composer>`
 * Você tem uma máquina `<Windows>`.
 
-## 🚀 Instalando <Dashboard Laravel>
+## 🚀 Instalando
 
-Para instalar o <Dashboard Laravel>, siga estas etapas:
+Para instalar o Dashboard Laravel, siga estas etapas:
 
 <Comandos de instalação>
 ```
-- Renomear o arquivo .env.emxample para .env
+- Renomear o arquivo .env.example para .env
 - npm install
 - npm run build 
 - composer install
@@ -29,7 +29,7 @@ Para instalar o <Dashboard Laravel>, siga estas etapas:
 Com esses comandos o projeto já esta apto a ser utilizado sem o uso de um bancos de dados simulando os testes. 
 Caso queira utilizar todas as funcionalidades faça a conexão a um banco de dados local.
 
-Você pode utilizar os seguindes comandos para conexão no .env caso utilize MySQL:
+Você pode utilizar os seguintes comandos para conexão no .env caso utilize MySQL:
 
 - mysql -u root -p
 - php artisan migrate:fresh
@@ -37,9 +37,9 @@ Você pode utilizar os seguindes comandos para conexão no .env caso utilize MyS
 
 ```
 
-## ☕ Usando <Dashboard Laravel>
+## ☕ Usando
 
-Para usar <Dashboard Laravel>, siga estas etapas:
+Para usar o Dashboard Laravel, siga estas etapas:
 
 - Realize o login clicando no botão "test user" para simular o projeto sem conexão no banco de dados.
 - Caso esteja utilizando a conexão com bd, cadastre-se e realize o login com a conta criada.
