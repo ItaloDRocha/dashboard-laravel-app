@@ -1,8 +1,8 @@
 # Dashboard Laravel
 
-<img src="public/assets/images/laravel.png" alt="Exemplo imagem">
+![Screenshot](public/assets/images/laravel.png)
 
-<img src="public/assets/images/laravel2.png" alt="Exemplo imagem">
+![Screenshot](public/assets/images/laravel2.png)
 
 > Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
 
