@@ -2,9 +2,9 @@
 
 ![Screenshot](public/assets/images/laravel.PNG)
 
-![Screenshot](public/assets/images/laravel.PNG)
+![Screenshot](public/assets/images/laravel2.PNG)
 
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+> O projeto foi criado com a intenção de entender e explorar as funcionalidades do Laravel, com foco na manipulação de dados no backend utilizando um CRUD simples e objetivo.
 
 ## 💻 Pré-requisitos
 
@@ -13,11 +13,11 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você instalou a versão mais recente de `<node / composer>`
 * Você tem uma máquina `<Windows>`.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Instalando <Dashboard Laravel>
 
 Para instalar o <Dashboard Laravel>, siga estas etapas:
 
-<comandos_de_instalação>
+<Comandos de instalação>
 ```
 - Renomear o arquivo .env.emxample para .env
 - npm install
@@ -35,6 +35,8 @@ Você pode utilizar os seguindes comandos para conexão no .env caso utilize MyS
 - php artisan migrate:fresh
 - php artisan test
 
+```
+
 ## ☕ Usando <Dashboard Laravel>
 
 Para usar <Dashboard Laravel>, siga estas etapas:
@@ -43,4 +45,4 @@ Para usar <Dashboard Laravel>, siga estas etapas:
 - Caso esteja utilizando a conexão com bd, cadastre-se e realize o login com a conta criada.
 - Clique no ícone localizado na lateral superior direita para ter acesso ao modal de alteração e visualização dos valores armazenados no BD do usuário.
 
-```
+
